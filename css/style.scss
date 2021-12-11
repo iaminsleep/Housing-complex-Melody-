@@ -1,0 +1,119 @@
+@font-face {
+  font-family: "Bebas Neue";
+  src: local("Bebas Neue Regular Regular"), local("BebasNeueRegular"),
+    url("../fonts/BebasNeueRegular.woff2") format("woff2"),
+    url("../fonts/BebasNeueRegular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@mixin flex($justifyContent, $alignItems, $textAlign, $direction) {
+  display: flex;
+  justify-content: $justifyContent;
+  align-items: $alignItems;
+  text-align: $textAlign;
+  flex-direction: $direction;
+}
+
+@mixin container {
+  margin: auto;
+  max-width: 1280px;
+}
+
+$blue: #3596f5;
+$brown: #635854;
+$white: #fff;
+
+* {
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  background-color: $brown;
+  padding: 12px 0;
+  border-bottom: 4px solid $blue;
+
+  .navbar {
+    @include flex(space-between, center, center, inherit);
+    @include container();
+
+    .navbar-list {
+      display: flex;
+      list-style: none;
+    }
+    .navbar-item {
+      margin: auto 40px;
+    }
+    .navbar-contacts {
+      text-align: right;
+      .navbar-text {
+        color: $white;
+        display: block;
+        margin-bottom: 4px;
+      }
+    }
+    .navbar-link {
+      text-decoration: none;
+      color: $white;
+    }
+    .phone {
+      font-weight: bold;
+      font-size: 17px;
+      line-height: 20px;
+    }
+  }
+}
+
+.main {
+  @include container();
+  @include flex(inherit, inherit, center, inherit);
+  padding-top: 54px;
+
+  .main-info {
+    @include flex(space-between, center, inherit, column);
+    flex-grow: 1;
+  }
+  .home-image path {
+    opacity: 0;
+    cursor: pointer;
+    &:hover {
+      opacity: 1;
+    }
+  }
+  .main-title {
+    font-family: "Bebas Neue", sans-serif;
+    color: $brown;
+    font-size: 40px;
+    line-height: 40px;
+  }
+  .counter-container {
+    @include flex(inherit, inherit, inherit, column);
+    .counter-button {
+      background-color: $white;
+      border: none;
+      cursor: pointer;
+      .counter-arrow-down {
+        transform: rotateX(180deg);
+      }
+    }
+    .counter {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 100px;
+      color: $brown;
+      padding: 10px 0;
+    }
+  }
+  .button-primary {
+    background-color: $blue;
+    border-radius: 6px;
+    color: $white;
+    cursor: pointer;
+    border: none;
+    padding: 16px 36px;
+    margin-bottom: 6px;
+  }
+}
