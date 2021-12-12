@@ -89,6 +89,10 @@ $white: #fff;
       opacity: 1;
     }
   }
+  path.current-floor {
+    opacity: 1;
+    fill: #14fd46a4;
+  }
   .main-title {
     font-family: "Bebas Neue", sans-serif;
     color: $brown;

@@ -120,6 +120,11 @@
   opacity: 1;
 }
 
+.main path.current-floor {
+  opacity: 1;
+  fill: #14fd46a4;
+}
+
 .main .main-title {
   font-family: "Bebas Neue", sans-serif;
   color: #635854;
