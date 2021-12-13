@@ -30,6 +30,7 @@
 $blue: #3596f5;
 $brown: #635854;
 $white: #fff;
+$grey: #ebebeb;
 
 * {
   box-sizing: border-box;
@@ -80,7 +81,7 @@ body {
 .main {
   @include container();
   @include flex(inherit, inherit, center, inherit);
-  padding-top: 54px;
+  padding: 60px 0;
 
   .main-info {
     @include flex(space-between, center, inherit, column);
@@ -157,13 +158,13 @@ body {
     background: $white;
     display: flex;
     flex-grow: 1; /*благодаря таким настройкам окно будет всегда в центре при прокрутке*/
-    /**/
+    /*анимация модального окна*/
     opacity: 0;
     transform: translateY(-10%);
     transition: transform 0.2s, opacity 0.2s;
     transition-delay: 0.2s;
     .modal-image {
-      background: #ebebeb;
+      background: $grey;
       width: 60%;
       text-align: center;
       padding: 50px;
@@ -214,5 +215,55 @@ body {
   > .modal-window {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+.footer {
+  $darkbrown: #423d3c;
+  background: $grey;
+  .footer-content {
+    @include flex(space-between, center, inherit, row);
+    @include container();
+    width: 100%;
+    height: 172px;
+    .footer-contacts {
+      display: flex;
+      align-items: center;
+      gap: 50px;
+      .footer-phone {
+        text-align: left;
+        .phone-text {
+          color: $brown;
+          display: block;
+          margin-bottom: 4px;
+        }
+        .phone-link {
+          font-weight: bold;
+          font-size: 17px;
+          line-height: 20px;
+          text-decoration: none;
+          color: $brown;
+          &:hover {
+            color: $darkbrown;
+          }
+        }
+      }
+      .footer-social a {
+        text-decoration: none;
+        padding: 4px;
+      }
+    }
+    .footer-list {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      .footer-item {
+        text-decoration: underline;
+        color: $brown;
+        &:hover {
+          color: $darkbrown;
+        }
+      }
+    }
   }
 }

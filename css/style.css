@@ -92,7 +92,7 @@ body {
   -webkit-box-direction: inherit;
       -ms-flex-direction: inherit;
           flex-direction: inherit;
-  padding-top: 54px;
+  padding: 60px 0;
 }
 
 .main .main-info {
@@ -234,7 +234,7 @@ body {
       -ms-flex-positive: 1;
           flex-grow: 1;
   /*благодаря таким настройкам окно будет всегда в центре при прокрутке*/
-  /**/
+  /*анимация модального окна*/
   opacity: 0;
   -webkit-transform: translateY(-10%);
           transform: translateY(-10%);
@@ -317,5 +317,84 @@ body {
   opacity: 1;
   -webkit-transform: translateY(0);
           transform: translateY(0);
+}
+
+.footer {
+  background: #ebebeb;
+}
+
+.footer .footer-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: inherit;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin: auto;
+  max-width: 1280px;
+  width: 100%;
+  height: 172px;
+}
+
+.footer .footer-content .footer-contacts {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 50px;
+}
+
+.footer .footer-content .footer-contacts .footer-phone {
+  text-align: left;
+}
+
+.footer .footer-content .footer-contacts .footer-phone .phone-text {
+  color: #635854;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.footer .footer-content .footer-contacts .footer-phone .phone-link {
+  font-weight: bold;
+  font-size: 17px;
+  line-height: 20px;
+  text-decoration: none;
+  color: #635854;
+}
+
+.footer .footer-content .footer-contacts .footer-phone .phone-link:hover {
+  color: #423d3c;
+}
+
+.footer .footer-content .footer-contacts .footer-social a {
+  text-decoration: none;
+  padding: 4px;
+}
+
+.footer .footer-content .footer-list {
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 20px;
+}
+
+.footer .footer-content .footer-list .footer-item {
+  text-decoration: underline;
+  color: #635854;
+}
+
+.footer .footer-content .footer-list .footer-item:hover {
+  color: #423d3c;
 }
 /*# sourceMappingURL=style.css.map */
