@@ -24,6 +24,7 @@
 @mixin button {
   cursor: pointer;
   border: none;
+  background-color: $white;
 }
 
 $blue: #3596f5;
@@ -32,9 +33,12 @@ $white: #fff;
 
 * {
   box-sizing: border-box;
-  font-family: "Roboto", sans-serif;
   margin: 0;
   padding: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
 }
 
 .header {
@@ -91,7 +95,6 @@ $white: #fff;
   }
   path.current-floor {
     opacity: 1;
-    fill: #14fd46a4;
   }
   .main-title {
     font-family: "Bebas Neue", sans-serif;
@@ -103,12 +106,11 @@ $white: #fff;
     @include flex(inherit, inherit, inherit, column);
     .counter-button {
       @include button();
-      background-color: $white;
       .counter-arrow-down {
         transform: rotateX(180deg);
       }
     }
-    .counter {
+    .floor-counter {
       font-family: "Bebas Neue", sans-serif;
       font-size: 100px;
       color: $brown;
@@ -122,5 +124,95 @@ $white: #fff;
     color: $white;
     padding: 16px 36px;
     margin-bottom: 6px;
+  }
+}
+
+.modal {
+  @mixin modal-text {
+    font-size: 16px;
+    line-height: 19px;
+    color: $brown;
+  }
+  @include flex(center, center, inherit, inherit);
+  position: fixed; /*фиксированная позиция, поверх всего сайта*/
+  left: 0;
+  top: 0; /*прикливаем к верхнему левому окну*/
+  width: 100%;
+  height: 100%; /*занимает всю страницу*/
+  background-color: rgba(0, 0, 0, 0.8); /*black transparent background*/
+  opacity: 0;
+  transform: scale(0);
+  transition: opacity 0.2s;
+  .modal-title {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 29px;
+    margin: 0 0 25px 0;
+  }
+  .modal-window {
+    position: relative; /*кнопка будет привязана именно к этому окну*/
+    max-width: 1000px;
+    min-height: 565px;
+    background: $white;
+    display: flex;
+    flex-grow: 1; /*благодаря таким настройкам окно будет всегда в центре при прокрутке*/
+    /**/
+    opacity: 0;
+    transform: translateY(-10%);
+    transition: transform 0.2s, opacity 0.2s;
+    transition-delay: 0.2s;
+    .modal-image {
+      background: #ebebeb;
+      width: 60%;
+      text-align: center;
+      padding: 50px;
+      .flats path {
+        opacity: 0;
+        cursor: pointer;
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+  }
+  .modal-info {
+    width: 40%;
+    padding: 50px 46px;
+    .flat-list {
+      list-style: none;
+      margin-top: 55px;
+      .flat-item {
+        margin-bottom: 10px;
+        .flat-link {
+          @include modal-text;
+          text-decoration: none;
+          &:hover {
+            color: $blue;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+    .modal-alert {
+      @include modal-text;
+      font-style: italic;
+      margin-top: 56px;
+    }
+  }
+  .close-button {
+    position: absolute; /*кнопка будет привязана к тому элементу, у которого position: relative*/
+    top: 27px;
+    right: 38px; /*приклеиваем к верхенму правому углу (отталкивание от углов)*/
+    @include button();
+  }
+}
+
+.open {
+  transform: scale(1);
+  opacity: 1;
+  > .modal-window {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

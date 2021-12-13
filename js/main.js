@@ -1,17 +1,19 @@
 $(document).ready(function () {
   let currentFloor = 2; //переменная, куда записывается текущий этаж
-  let counterUp = $('.counter-up'); //кнопка увеличения этажа
-  let counterDown = $('.counter-down'); //кнопка уменьшения этажа
-  let floorPath = $(".home-image path"); //каждый отдельный этаж в SVG
+  const counterUp = $('.counter-up'); //кнопка увеличения этажа
+  const counterDown = $('.counter-down'); //кнопка уменьшения этажа
+  const floorPath = $(".home-image path"); //каждый отдельный этаж в SVG
+  const modal = $('.modal');
+  const modalCloseButton = $('.close-button');
+  const viewFlatsButton = $('.button-primary');
 
   //функция при наведении мышью на этаж
-  floorPath.on("click", function() {
+  floorPath.mouseover(function() {
     floorPath.removeClass('current-floor'); //удаляем предыдущий этаж
     currentFloor = $(this).attr('data-floor'); //получаем значения текущего этажа
     $('.counter').text(currentFloor); //записываем значение этажа в счётчик
     usCurrentFloor = currentFloor.toLocaleString('en-US', {minimumIntegerDigits: 2, useGroupping: false}) //форматируем этаж, чтобы было не 1, а 01
-    $(`[data-floor = ${usCurrentFloor}]`).toggleClass('current-floor'); //подсвечиваем текущий этаж
-  })
+  });
 
   const changeFloor = ($actionUp, $floorLimit) => {
     if($actionUp === true) {
@@ -36,4 +38,12 @@ $(document).ready(function () {
   counterDown.click(function() {
     changeFloor(false, 2)
   });
+
+  //открытие и закрытия модального окна при нажатии на этаж и крестик соответственно
+  const toggleModal = function() {
+    modal.toggleClass('open');
+  }
+  viewFlatsButton.click(toggleModal);
+  floorPath.on("click", toggleModal);
+  modalCloseButton.click(toggleModal);
 });
