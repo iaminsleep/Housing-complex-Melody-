@@ -280,6 +280,10 @@ body {
   opacity: 1;
 }
 
+.modal .modal-window .modal-image .flats .hovered {
+  opacity: 1;
+}
+
 .modal .modal-info {
   width: 40%;
   padding: 50px 46px;
@@ -310,6 +314,11 @@ body {
   color: #3477b9;
 }
 
+.modal .modal-info .flat-list .flat-item .current-flat {
+  color: #3596f5;
+  text-decoration: underline;
+}
+
 .modal .modal-info .modal-alert {
   font-size: 16px;
   line-height: 19px;
@@ -327,6 +336,11 @@ body {
   cursor: pointer;
   border: none;
   background-color: #fff;
+}
+
+.current-flat {
+  color: #3596f5;
+  text-decoration: underline;
 }
 
 .open {

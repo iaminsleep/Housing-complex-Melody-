@@ -1,11 +1,17 @@
 $(document).ready(function () {
   let currentFloor = 2; //переменная, куда записывается текущий этаж
+
   const counterUp = $('.counter-up'); //кнопка увеличения этажа
   const counterDown = $('.counter-down'); //кнопка уменьшения этажа
   const floorPath = $(".home-image path"); //каждый отдельный этаж в SVG
+
   const modal = $('.modal');
   const modalCloseButton = $('.close-button');
   const viewFlatsButton = $('.button-primary');
+
+  let currentFlat = 1;
+  const flatPath = $('.flats path');
+  const flatName = $('.flat-link');
 
   //функция при наведении мышью на этаж
   floorPath.mouseover(function() {
@@ -46,4 +52,20 @@ $(document).ready(function () {
   viewFlatsButton.click(toggleModal);
   floorPath.on("click", toggleModal);
   modalCloseButton.click(toggleModal);
+
+  //функция при наведении мышью на этаж
+  flatPath.mouseover(function() {
+    currentFlat = $(this).attr('data-flat'); //получаем значения текущего этажа
+    $(`[data-flat-name = ${currentFlat}]`).toggleClass('current-flat');
+  })
+  flatPath.mouseout(function() {
+    $(`[data-flat-name = ${currentFlat}]`).removeClass('current-flat');
+  })
+  flatName.mouseover(function(){
+    currentFlat = $(this).attr('data-flat-name'); //получаем значения текущего этажа
+    $(`[data-flat = ${currentFlat}]`).toggleClass('hovered');
+  })
+  flatName.mouseout(function() {
+    $(`[data-flat = ${currentFlat}]`).removeClass('hovered');
+  })
 });

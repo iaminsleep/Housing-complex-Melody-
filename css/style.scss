@@ -109,6 +109,7 @@ body {
   path.current-floor {
     opacity: 1;
   }
+
   .main-title {
     font-family: "Bebas Neue", sans-serif;
     color: $brown;
@@ -190,6 +191,9 @@ body {
           opacity: 1;
         }
       }
+      .flats .hovered {
+        opacity: 1;
+      }
     }
   }
   .modal-info {
@@ -211,6 +215,10 @@ body {
             color: $darkblue;
           }
         }
+        .current-flat {
+          color: #3596f5;
+          text-decoration: underline;
+        }
       }
     }
     .modal-alert {
@@ -225,6 +233,11 @@ body {
     right: 38px; /*приклеиваем к верхенму правому углу (отталкивание от углов)*/
     @include button();
   }
+}
+
+.current-flat {
+  color: $blue;
+  text-decoration: underline;
 }
 
 .open {
