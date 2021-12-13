@@ -20,7 +20,6 @@ body {
 
 .header {
   background-color: #635854;
-  padding: 12px 0;
   border-bottom: 4px solid #3596f5;
 }
 
@@ -50,8 +49,18 @@ body {
   list-style: none;
 }
 
-.header .navbar .navbar-item {
-  margin: auto 40px;
+.header .navbar .navbar-list .navbar-link {
+  padding: 12px 40px;
+  text-decoration: none;
+  color: #fff;
+}
+
+.header .navbar .navbar-list .navbar-link:hover {
+  background: #3596f5;
+}
+
+.header .navbar .navbar-list .navbar-link:active {
+  background: #3477b9;
 }
 
 .header .navbar .navbar-contacts {
@@ -64,15 +73,20 @@ body {
   margin-bottom: 4px;
 }
 
-.header .navbar .navbar-link {
-  text-decoration: none;
-  color: #fff;
-}
-
 .header .navbar .phone {
   font-weight: bold;
   font-size: 17px;
   line-height: 20px;
+  text-decoration: none;
+  color: #fff;
+}
+
+.header .navbar .phone:hover {
+  color: #3596f5;
+}
+
+.header .navbar .phone:active {
+  color: #3477b9;
 }
 
 .main {
@@ -179,6 +193,10 @@ body {
   color: #fff;
   padding: 16px 36px;
   margin-bottom: 6px;
+}
+
+.main .button-primary:hover {
+  background: #3477b9;
 }
 
 .modal {
@@ -288,6 +306,10 @@ body {
   text-decoration: underline;
 }
 
+.modal .modal-info .flat-list .flat-item .flat-link:active {
+  color: #3477b9;
+}
+
 .modal .modal-info .modal-alert {
   font-size: 16px;
   line-height: 19px;
@@ -373,7 +395,11 @@ body {
 }
 
 .footer .footer-content .footer-contacts .footer-phone .phone-link:hover {
-  color: #423d3c;
+  color: #3596f5;
+}
+
+.footer .footer-content .footer-contacts .footer-phone .phone-link:active {
+  color: #3477b9;
 }
 
 .footer .footer-content .footer-contacts .footer-social a {
@@ -395,6 +421,10 @@ body {
 }
 
 .footer .footer-content .footer-list .footer-item:hover {
-  color: #423d3c;
+  color: #3596f5;
+}
+
+.footer .footer-content .footer-list .footer-item:active {
+  color: #3477b9;
 }
 /*# sourceMappingURL=style.css.map */

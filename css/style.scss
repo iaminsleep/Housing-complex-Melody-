@@ -31,6 +31,7 @@ $blue: #3596f5;
 $brown: #635854;
 $white: #fff;
 $grey: #ebebeb;
+$darkblue: #3477b9;
 
 * {
   box-sizing: border-box;
@@ -44,7 +45,6 @@ body {
 
 .header {
   background-color: $brown;
-  padding: 12px 0;
   border-bottom: 4px solid $blue;
 
   .navbar {
@@ -54,9 +54,17 @@ body {
     .navbar-list {
       display: flex;
       list-style: none;
-    }
-    .navbar-item {
-      margin: auto 40px;
+      .navbar-link {
+        padding: 12px 40px;
+        text-decoration: none;
+        color: $white;
+        &:hover {
+          background: $blue;
+        }
+        &:active {
+          background: $darkblue;
+        }
+      }
     }
     .navbar-contacts {
       text-align: right;
@@ -66,14 +74,18 @@ body {
         margin-bottom: 4px;
       }
     }
-    .navbar-link {
-      text-decoration: none;
-      color: $white;
-    }
     .phone {
       font-weight: bold;
       font-size: 17px;
       line-height: 20px;
+      text-decoration: none;
+      color: $white;
+      &:hover {
+        color: $blue;
+      }
+      &:active {
+        color: $darkblue;
+      }
     }
   }
 }
@@ -125,6 +137,9 @@ body {
     color: $white;
     padding: 16px 36px;
     margin-bottom: 6px;
+    &:hover {
+      background: $darkblue;
+    }
   }
 }
 
@@ -192,6 +207,9 @@ body {
             color: $blue;
             text-decoration: underline;
           }
+          &:active {
+            color: $darkblue;
+          }
         }
       }
     }
@@ -219,7 +237,6 @@ body {
 }
 
 .footer {
-  $darkbrown: #423d3c;
   background: $grey;
   .footer-content {
     @include flex(space-between, center, inherit, row);
@@ -244,7 +261,10 @@ body {
           text-decoration: none;
           color: $brown;
           &:hover {
-            color: $darkbrown;
+            color: $blue;
+          }
+          &:active {
+            color: $darkblue;
           }
         }
       }
@@ -261,7 +281,10 @@ body {
         text-decoration: underline;
         color: $brown;
         &:hover {
-          color: $darkbrown;
+          color: $blue;
+        }
+        &:active {
+          color: $darkblue;
         }
       }
     }
