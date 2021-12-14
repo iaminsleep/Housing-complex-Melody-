@@ -10,6 +10,7 @@ $(document).ready(function () {
   const viewFlatsButton = $('.button-primary');
 
   let currentFlat = 1;
+  let usCurrentFloor = 1;
   const flatPath = $('.flats path');
   const flatName = $('.flat-link');
 
@@ -20,6 +21,10 @@ $(document).ready(function () {
     $('.counter').text(currentFloor); //записываем значение этажа в счётчик
     usCurrentFloor = currentFloor.toLocaleString('en-US', {minimumIntegerDigits: 2, useGroupping: false}) //форматируем этаж, чтобы было не 1, а 01
   });
+
+  floorPath.mouseout(function() {
+    $(`[data-floor = ${usCurrentFloor}]`).toggleClass('current-floor');
+  })
 
   const changeFloor = ($actionUp, $floorLimit) => {
     if($actionUp === true) {
@@ -53,16 +58,16 @@ $(document).ready(function () {
   floorPath.on("click", toggleModal);
   modalCloseButton.click(toggleModal);
 
-  //функция при наведении мышью на этаж
+  //функция при наведении мышью на квартиру
   flatPath.mouseover(function() {
-    currentFlat = $(this).attr('data-flat'); //получаем значения текущего этажа
+    currentFlat = $(this).attr('data-flat'); //получаем значения текущей квартиры
     $(`[data-flat-name = ${currentFlat}]`).toggleClass('current-flat');
   })
   flatPath.mouseout(function() {
     $(`[data-flat-name = ${currentFlat}]`).removeClass('current-flat');
   })
   flatName.mouseover(function(){
-    currentFlat = $(this).attr('data-flat-name'); //получаем значения текущего этажа
+    currentFlat = $(this).attr('data-flat-name');
     $(`[data-flat = ${currentFlat}]`).toggleClass('hovered');
   })
   flatName.mouseout(function() {
