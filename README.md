@@ -1,6 +1,7 @@
 # Melody
-Сайт ЖК "Мелодия", свёрстанный с использованием Sass и JQuery
-### Технологии:
+The site of the LCD "Melody", made using Css and jQuery
+
+### Technologies:
 - html
 - sass
 - css
