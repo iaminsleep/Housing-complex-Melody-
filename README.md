@@ -1,5 +1,5 @@
 # Melody
-The site of the LCD "Melody", made using Css and jQuery
+The front page of the housing complex "Melody", made using Css and jQuery
 
 ### Technologies:
 - html
