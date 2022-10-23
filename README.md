@@ -6,3 +6,6 @@ The front page of the housing complex "Melody", made using Css and jQuery
 - sass
 - css
 - js (jquery)
+
+### Hosting (gh-pages)
+https://iaminsleep.github.io/melody/
